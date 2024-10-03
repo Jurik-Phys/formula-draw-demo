@@ -11,12 +11,13 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/src ext/MicroTeX/src)
 
 set(SOURCE_EXE main.cpp)
 
 add_subdirectory(src)
+add_subdirectory(ext/MicroTeX)
 
 add_executable(formula-draw-demo ${SOURCE_EXE})
 
-target_link_libraries(formula-draw-demo PRIVATE src-lib Qt6::Widgets)
+target_link_libraries(formula-draw-demo PRIVATE src-lib Qt6::Widgets LaTeX)
