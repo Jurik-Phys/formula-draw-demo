@@ -23,7 +23,8 @@ QAppWindow::QAppWindow(QWidget *parent) : QWidget(parent) {
     setLayout(layout);
 
     // QString text = "\\textbf{Hello, World! $2^2 = 4$ \\textbf{Привет, Мир!} }";
-    QString text = "\\mathbf{\\mbox{привет мир}\\mbox{Hello, World!}\\mbox{2^2=4}}";
+    // QString text = "Текстовый привет, Мир!\\ \\mathbf{\\mbox{привет мир}\\mbox{Hello, World!}\\mbox{2^2=4}\\ \\mbox{\\sqrt4=2}}";
+    QString text = "\\debug 2^2 = 4; \\text{ТекстовыйприветМир Hello, World!!!}";
     _texwidget->setLaTeX(text.toStdWString());
 }
 

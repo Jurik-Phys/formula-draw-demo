@@ -40,9 +40,9 @@ void TeXWidget::setLaTeX(const std::wstring& latex)
 
   _render = tex::LaTeX::parse(
         latex,
-        width() - _padding * 2,
-        _text_size,
-        _text_size / 3.f,
+        720, // width() - _padding * 2,
+        48,  // _text_size,
+        24,  //_text_size / 3.f,
         0xff424242);
   update();
 }
