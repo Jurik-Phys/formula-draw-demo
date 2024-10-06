@@ -6,7 +6,7 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QLabel>
-#include "latex.h"
+#include "microtex.h"
 #include "qt_texwidget.h"
 
 class QAppWindow : public QWidget {

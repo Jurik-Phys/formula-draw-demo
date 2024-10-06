@@ -1,29 +1,29 @@
 #ifndef QT_TEXWIDGET_H
-#define QT_TEXWIDGET_H 1
-
-#define BUILD_QT 1
-#include "platform/qt/graphic_qt.h"
-#include "latex.h"
+#define QT_TEXWIDGET_H
 
 #include <QWidget>
-#include <QPainter>
 
-class TeXWidget : public QWidget
-{
- public:
-  TeXWidget(QWidget* parent = nullptr, float text_size=20.f);
-  virtual ~TeXWidget();
-  float getTextSize();
+#include "platform/qt/graphic_qt.h"
+#include "qt_tex_render.h"
+#include "microtex.h"
 
-  void setTextSize(float size);
-  void setLaTeX(const std::wstring& latex);
-  bool isRenderDisplayed();
-  int getRenderWidth();
-  int getRenderHeight();
-  void paintEvent(QPaintEvent* event);
+class TeXWidget : public QWidget, public TeXRender {
+public:
+  explicit TeXWidget(QWidget* parent = nullptr, float text_size = 20.f);
 
- private:
-  tex::TeXRender* _render;
+  ~TeXWidget() override;
+
+  float getTextSize() override;
+  void setTextSize(float size) override;
+  void setLaTeX(const std::string& latex) override;
+  bool isRenderDisplayed() override;
+  int getRenderWidth() override;
+  int getRenderHeight() override;
+  void paintEvent(QPaintEvent* event) override;
+  void saveSVG(const char* path) override;
+
+private:
+  microtex::Render* _render;
   float _text_size;
   int _padding;
 };

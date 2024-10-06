@@ -7,13 +7,10 @@ QAppWindow::QAppWindow(QWidget *parent) : QWidget(parent) {
     this->resize(800,350);
     this->setWindowTitle("Qt draw formula demo");
 
-    // main layout for window
+    // Main windows layout
     QHBoxLayout* layout = new QHBoxLayout;
 
-    QLabel* label = new QLabel("Change some text of your life");
-    layout->addWidget(label);
-
-    int text_size = 20;
+    int text_size = 28;
     // the TeX widget is on the left
     _texwidget = new TeXWidget(nullptr, text_size);
     _texwidget->setMinimumWidth(120);
@@ -22,10 +19,8 @@ QAppWindow::QAppWindow(QWidget *parent) : QWidget(parent) {
 
     setLayout(layout);
 
-    // QString text = "\\textbf{Hello, World! $2^2 = 4$ \\textbf{Привет, Мир!} }";
-    // QString text = "Текстовый привет, Мир!\\ \\mathbf{\\mbox{привет мир}\\mbox{Hello, World!}\\mbox{2^2=4}\\ \\mbox{\\sqrt4=2}}";
-    QString text = "\\debug 2^2 = 4; \\text{ТекстовыйприветМир Hello, World!!!}";
-    _texwidget->setLaTeX(text.toStdWString());
+    QString text = "2^2 = 4;\\ \\int_a^b x^2 dx;\\ \\text{Привет Мир; Hello, World!!!}\\ V=\\frac{dx}{dt}";
+    _texwidget->setLaTeX(text.toStdString());
 }
 
 QAppWindow::~QAppWindow(){
