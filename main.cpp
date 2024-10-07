@@ -13,7 +13,12 @@ int main(int argc, char** argv){
 
     QApplication app(argc, argv);
 
-    const microtex::FontSrcFile math{argv[1], argv[2]};
+    // Use this fonts file for draw formula
+    // copy file from "ext/MicroTeX/res/firamath"
+    const char* fontClmFile = "FiraMath-Regular.clm2";
+    const char* fontOtfFile = "FiraMath-Regular.otf";
+
+    const microtex::FontSrcFile math{fontClmFile, fontOtfFile};
     microtex::MicroTeX::init(math);
 
     initQt();
